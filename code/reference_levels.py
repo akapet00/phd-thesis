@@ -5,7 +5,7 @@ import numpy as np
 import seaborn as sns
 
 from misc import incident_power_density
-from plotting import update_rc
+from misc import update_rc
 
 
 def main():

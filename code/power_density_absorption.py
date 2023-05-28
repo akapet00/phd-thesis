@@ -9,7 +9,7 @@ import seaborn as sns
 from misc import incident_power_density
 from misc import load_tissue_properties
 from misc import reflection_coefficient
-from plotting import update_rc
+from misc import update_rc
 
 
 def take_sample(sample_size,
