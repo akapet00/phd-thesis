@@ -1,0 +1,37 @@
+\cleardoublepage
+
+\chapter{CONCLUDING REMARKS}
+\label{chap:6}
+This thesis deals with the spatial averaging of incident and absorbed power densities on the surface of nonplanar body parts.
+The main objective is to account for an inherent curvature during exposure assessment and dosimetry analysis, which is of a particular importance at \gls{mmw}.
+Namely, flat tissue models are inadequate if the wavelength of the incident \gls{emf} is of the same order of magnitude as the curvature radius of the nonplanar region on a local scale.
+Therefore, two canonical nonplanar models---the sphere and cylinder---have been developed together with the anatomical model of the human ear.
+Furthermore, accurate numerical integration techniques to assess the spatially averaged power densities have been proposed and demonstrated on all nonplanar models.
+Lastly, two versions of the automatic ``hot-spot'' detection algorithm, completely agnostic to the underlying numerical method for \gls{em} simulations and the spatial discretization of the computational domain, have been presented by using the developed model of the ear and existing realistic head model.
+
+The first part of the thesis pertains to the general introduction.
+The comprehensive investigation of the influence of geometric features and overall shape of the evaluation surface on extracted dosimetric quantities, spatially averaged on that surface, is highlighted as the primary objective.
+Accordingly, the main hypothesis, scientific method and contribution of this thesis are outlined.
+
+The second part of the thesis consists of the three chapters put forth with the aim of elucidating the scientific contributions in the form of four peer-reviewed journal publications.
+Initially, an overarching survey pertaining to human exposure to \gls{emf}s is provided, with a specific focus on \gls{rf} frequencies, particularly at the \gls{mmw} range.
+Furthermore, an extensive review of existing literature concerning the spatial averaging of power densities on both flat and nonplanar tissue models is presented, accentuating the current state-of-the-art methodologies employed in this domain.
+Lastly, the scientific methods and models employed in the aforementioned publications, which form the backbone of this thesis, are outlined.
+Particular attention is given to the computational aspects encompassing various stages, ranging from the estimation of the evaluation surface's normal vectors, irrespective of its shape and size, to the construction of the integration domain, and ultimately, to the spatial averaging of power densities.
+A rigorous mathematical approach is employed throughout to ensure accurate and precise calculations.
+
+In total, this thesis encompasses four peer-reviewed journal publications, each contributing to a specific advancement of knowledge in spatial averaging of dosimetric quantities on nonplanar surface.
+The initial two publications specifically focus on the development of nonplanar models that serve as canonical representations of the human body parts.
+It has been convincingly demonstrated that the geometric shape of the model plays a crucial role in determining the dosimetric quantities extracted from its surface.
+This finding substantiates the first posited hypothesis and underscores the significance of considering the model's shape in dosimetric analyses.
+The third publication proposes an effective approach for spatially averaging power densities on the realistic ear model and identifying the region with the highest exposure, often referred to as the ``hot-spot.''
+Notably, it reveals that the spatial distribution of surface normals offers an effective approximation of curvature, thereby exerting a significant influence on \gls{em} power absorption.
+This observation aligns with the second hypothesis put forth in this thesis.
+Moreover, by leveraging advanced techniques from computational linear algebra within modern machine learning frameworks, the specification of the position of the averaging area on the evaluation surface for spatially averaged power density computation is achieved without manual intervention.
+This aligns with the third hypothesis, highlighting the integration of cutting-edge methodologies to streamline the process.
+Additionally, to corroborate the third hypothesis, in the second publication, the concept of machine learning-aided \gls{em} simulation approach is introduced.
+This peculiar integration aims to enhance accuracy, expedite performance, and reduce memory requirements during the simulation of realistic exposure scenarios.
+In the final paper, the deep dive in numerical integration techniques and discussion on the choice of the quadrature degree for specific use-cases during surface integration of power densities on conformal surface is provided.
+
+Taken together, these four papers collectively contribute to expanding the understanding of nonplanar models, the influence of shape on dosimetric quantities, the spatial averaging of power densities, and the integration of machine learning in electromagnetic simulation.
+The findings provide valuable insights and open up new avenues for further research in this field.

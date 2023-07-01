@@ -1,0 +1,370 @@
+\documentclass[12pt,twoside,onecolumn]{book}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{10mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0mm}{0mm}
+
+% croatian words break
+\usepackage[english]{babel}
+
+% for hacking
+\usepackage{xpatch}
+\newenvironment{block}%
+  {\list{}{\leftmargin=0.0in\rightmargin=0.0in}  \item[]  }%
+  {\endlist}
+
+% fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% appendix setup
+\usepackage[titletoc,title]{appendix}
+
+% not-so-intelligent cross-referencing
+\usepackage[linktocpage=true]{hyperref}
+
+% additional stuff for "description" lists
+\usepackage{calc}  
+\usepackage{enumitem}
+
+% embed pdfs into latex
+% \usepackage[draft]{pdfpages}
+\usepackage{pdfpages}
+
+% remove headers/footers for empty pages
+\usepackage{emptypage}
+
+% math packages
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{bm}
+\usepackage{nicefrac}
+
+% SI units in text
+\usepackage[detect-all]{siunitx}
+\sisetup{per-mode=symbol,range-phrase=--,range-units=single,list-units=single}
+\usepackage{booktabs}
+
+% tables
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+%\usepackage[table,xcdraw]{xcolor}  % needs to be loaded before pgf
+
+% figures
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes,backgrounds,fit,arrows}
+\usepackage{pgf-spectra}
+\usepackage{contour}
+\usepackage{adjustbox}
+\usepackage{wrapfig}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% intelligent cross-referencing 
+\usepackage{cleveref}
+\xapptocmd\appendices{%
+  \crefalias{chapter}{appendix}%
+}{}{\PatchFailed}
+
+% glossaries
+\usepackage[acronym,nonumberlist]{glossaries-prefix}
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+\makeglossaries
+\newacronym{1-d}{1-D}{one-dimensional}
+\newacronym{2-d}{2-D}{two-dimensional}
+\newacronym{3-d}{3-D}{three-dimensional}
+\newacronym{k-d}{$k$-D}{$k$-dimensional}
+\newacronym{em}{EM}{electromagnetic}
+\newacronym{emf}{EMF}{electromagnetic field}
+\newacronym{rf}{RF}{radio frequency}
+\newacronym{lf}{LF}{low frequency}
+\newacronym{ir}{IR}{infrared}
+\newacronym{uv}{UV}{ultraviolet}
+\newacronym{mmw}{MMW}{millimeter wave}
+\newacronym{5g}{5G}{fifth generation}
+\newacronym{mimo}{MIMO}{multiple-input and multiple-output}
+\newacronym{br}{BR}{basic restriction}
+\newacronym{drl}{DRL}{dosimetric reference limit}
+\newacronym{rl}{RL}{reference level}
+\newacronym{erl}{ERL}{exposure reference level}
+\newacronym{sar}{SAR}{specific absorption rate}
+\newacronym{ipd}{IPD}{incident power density}
+\newacronym{tpd}{TPD}{transmitted power density}
+\newacronym{apd}{APD}{absorbed/epithelial power density}
+\newacronym{icnirp}{ICNIRP}{International Commission on Non-Ionizing Radiation Protection}
+\newacronym{ieee}{IEEE}{Institute of Electrical and Electronics Engineers}
+\newacronym{ices}{ICES}{International Committee on Electromagnetic Safety}
+\newacronym{pca}{PCA}{principal component analysis}
+\newacronym{fdtd}{FDTD}{finite-difference time-domain}
+\newacronym{fem}{FEM}{finite element method}
+\newacronym{rms}{RMS}{root mean square}
+\newacronym{rgb}{RGB}{red-green-blue}
+\glsaddall
+
+% official FESB setup and formatting - DO NOT CHANGE
+\definecolor{cite}{rgb}{0,0,0.8}
+\definecolor{link}{rgb}{0,0,0.8}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=link,
+    citecolor=cite,
+    urlcolor=link,
+    colorlinks=true,
+    }%
+\usepackage{setspace}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[all]{hypcap}
+\usepackage{bookmark}
+\usepackage{hypdestopt}
+\usepackage{pslatex}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\newcounter{citenum}
+\def\oldcite{}
+\let\oldcite=\bibcite
+\def\bibcite{\stepcounter{citenum}\oldcite}
+
+\newcounter{totfigures}
+\newcounter{tottables}
+\newcounter{totequations}
+
+\makeatletter
+\AtEndDocument{
+    \addtocounter{totfigures}{\value{figure}}
+    \addtocounter{tottables}{\value{table}}
+    \addtocounter{totequations}{\value{equation}}
+    \immediate\write\@mainaux{%
+        \string\gdef\string\totfig{\number\value{totfigures}}
+        \string\gdef\string\tottab{\number \value{tottables}}
+        \string\gdef\string\toteq{\number \value{totequations}}
+        \string\gdef\string\totcite{\number\value{citenum}}
+    }%
+}%
+\makeatother
+\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}\setcounter{figure}{0}}{}{}
+\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{}
+\pretocmd{\chapter}{\addtocounter{totequations}{\value{equation}}\setcounter{equation}{0}}{}{}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+\titleformat{\chapter}
+    [block]{\normalfont\bfseries\Large}{\rlap{\thechapter}}{0em}
+    {\hspace*{.05\textwidth}\begin{minipage}[t]{.9\textwidth}\raggedright}[\end{minipage}]
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\raggedbottom
+\onehalfspacing
+\makeindex%
+\usepackage{tocloft}
+\renewcommand\cftloftitlefont{\LARGE\bfseries}
+\renewcommand\cftfigfont{\em}
+\renewcommand\cftlottitlefont{\LARGE\bfseries}
+\renewcommand\cfttabfont{\em}
+\renewcommand\cfttoctitlefont{\LARGE\bfseries}
+
+
+% DOCUMENT
+\begin{document}
+
+\frontmatter
+\pagestyle{plain}
+
+% COVER PAGE
+\begin{titlepage}
+    \begin{center}
+        {\fontsize{13}{20}\textnormal{U N I V E R S I T Y~~O F~~S P L I T}}\\
+        {\fontsize{13}{20}\textnormal{FACULTY OF ELECTRICAL ENGINEERING, MECHANICAL ENGINEERING AND NAVAL ARCHITECTURE}}
+        \vskip 60mm
+        \begin{textblock}{5}[0.5,0.0](10.75,10) \fontsize{14}{20}\bfseries{Ante Kapetanović} \end{textblock}
+        \begin{textblock}{15.5}[0.5,0.0](10.75,12)
+        {\fontsize{18}{26}\bfseries\
+        ADVANCED TECHNIQUE FOR ASSESSMENT OF SPATIALLY AVERAGED DOSIMETRIC QUANTITIES ON NONPLANAR SURFACES}
+        \vskip 20mm
+        {\fontsize{14}{20}\textnormal{DOCTORAL THESIS}}
+        \end{textblock}
+        \begin{textblock}{5}[0.5,1.0](10.75,27.2)
+        {\fontsize{13}{20}\textnormal
+        Split, 2023.}
+        \end{textblock}
+        \newpage
+        \thispagestyle{empty}
+    \end{center}
+\end{titlepage}
+
+% PREFACE
+\begin{titlepage}
+    % FIRST INNER PAGE
+    \begin{center}
+        {\fontsize{13}{20}\textnormal{U N I V E R S I T Y~~O F~~S P L I T}}\\
+        {\fontsize{13}{20}\textnormal{FACULTY OF ELECTRICAL ENGINEERING, MECHANICAL ENGINEERING AND NAVAL ARCHITECTURE}}
+        \vskip 54mm
+        {\fontsize{14}{20}\bfseries{Ante Kapetanović}}
+        \vskip 18mm
+        {\fontsize{18}{18}\bfseries\
+        \emph{Advanced Technique for Assessment of Spatially Averaged Dosimetric Quantities on Nonplanar Surfaces}}
+        \vskip 20mm
+        {\fontsize{14}{20}\textnormal{DOCTORAL THESIS}}
+        \begin{textblock}{5}[0.5,1.0](10.75,27.2)
+        {\fontsize{13}{20}\textnormal
+        Split, 2023.}
+        \end{textblock}
+    \end{center}
+
+    % AFFILIATIONS
+    \newpage
+    \begin{flushleft}
+        \textnormal{}
+        \vskip 30mm
+        The research reported in this thesis was carried out at the Department of Electronics and Computing, Faculty of Electrical Engineering, Mechanical Engineering and Naval Architecture (FESB), University of Split, Split, Croatia.
+        \vskip 12mm
+        Supervisor: prof. dr. sc. Dragan Poljak, FESB, University of Split, Split, Croatia
+        
+        Disertation number: xxx-xxx
+        
+        \vskip 60mm
+        \rule{16cm}{1.4pt}
+        \vskip 2mm
+        \addtolength{\leftskip}{5mm}\textnormal{BIBLIOGRAPHIC INFORMATION}
+        \vskip 2mm
+        \textnormal{Keywords: electromagnetic safety, exposure assessment, computational dosimetry, absorbed power density, incident power density, nonplanar surface, anatomical models, normal estimation, surface integration, machine learning}
+        \vskip 0mm
+        \textnormal{Scientific area: Technical sciences}
+        \vskip 0mm
+        \textnormal{Scientific field: Electrical engineering}
+        \vskip 0mm
+        \textnormal{Scientific branch: Electronics}
+        \vskip 0mm
+        \textnormal{Institution of PhD completion: FESB, University of Split, Split, Croatia}
+        \vskip 0mm
+        \textnormal{Supervisor of the thesis: prof. dr.sc. Dragan Poljak}
+        \vskip 0mm
+        \textnormal{Number of pages: 147}
+        \vskip 0mm
+        \textnormal{Number of figures: 15}
+        \vskip 0mm
+        \textnormal{Number of tables: 3}
+        \vskip 0mm
+        \textnormal{Number of references: 145}
+        \vskip 0mm
+        \rule{16cm}{1.4pt}
+        \addtolength{\leftskip}{-5mm}
+    
+        % JURY INFO
+        \newpage
+        \textnormal{}
+        \vskip 30mm
+        Committee for assessment of doctoral dissertation:
+        \begin{enumerate}
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \end{enumerate}
+        
+        \vskip 15mm
+        Committee for defence of doctoral dissertation:
+        \begin{enumerate}
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \item Xxxx. dr. sc. Xxxx Yyyyy, Institution name and City/Town
+        \end{enumerate}
+        \vskip 15mm
+        Dissertation defended on: xx. xx. 20xx.
+    \end{flushleft}
+    
+    % ABSTRACT IN ENGLISH
+    \include{chapters/abstract}
+    
+    % ABSTRACT IN CROATIAN
+    \include{chapters/sazetak}
+    
+    % THANKS
+    \include{chapters/acknowledgements}
+\end{titlepage}
+
+% TABLE OF CONTENTS
+\tableofcontents
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% LIST OF TABLES
+\clearpage
+\phantomsection
+\setlength\cftbeforetabskip{10pt}
+\begin{spacing}{1}
+\listoftables
+\addcontentsline{toc}{section}{List of Tables}
+\end{spacing}
+
+% TABLE OF FIGURES
+\clearpage
+\phantomsection
+\begin{spacing}{1}
+\setlength\cftbeforefigskip{10pt}
+\listoffigures
+\addcontentsline{toc}{section}{List of Figures}
+\end{spacing}
+
+% ABBREVIATIONS
+\clearpage
+\phantomsection
+\begin{spacing}{1}
+\setlength\cftbeforefigskip{10pt}
+\begingroup\let\newpage\relax\printglossary[title={\LARGE List of Acronyms},type=\acronymtype]\endgroup
+\addcontentsline{toc}{section}{List of Acronyms}
+\end{spacing}
+
+\fancypagestyle{includepdfstyle}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[LE,RO]{\thepage}
+}%
+
+% MAIN MATTER
+\sloppypar{%
+    \mainmatter
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyfoot[LE,RO]{\thepage}
+    \fancyhead[LE]{\textit{\nouppercase{\leftmark}}}
+    \fancyhead[RO]{\textit{\nouppercase{\leftmark}}}
+    \newpage \thispagestyle{empty}
+    \glsresetall
+
+    % MAIN MATTER
+    \include{chapters/chapter_1}
+    \include{chapters/chapter_2}
+    \include{chapters/chapter_3}
+    \include{chapters/chapter_4}
+    \include{chapters/chapter_5}
+    \include{chapters/chapter_6}
+    
+    % REFERENCES
+    \cleardoublepage
+    \renewcommand{\bibname}{BIBLIOGRAPHY}
+    \begin{spacing}{1}
+        \bibliographystyle{IEEEtranFESB_eng}
+        \bibliography{references}
+    \end{spacing}
+    
+    % APPENDIX
+    \begin{appendices}
+    \include{chapters/appendix_a}
+    \include{chapters/appendix_b}
+    \include{chapters/appendix_c}
+    \include{chapters/appendix_d}
+    \end{appendices}
+    
+    % CV
+    \input{chapters/vitae}
+}%
+\end{document}
