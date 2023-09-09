@@ -13,7 +13,7 @@ A seminal work by Chou~\cite{Chou1975Effects}, as referenced in~\cite{Foster2022
     \label{eqn:sar_1}
     \text{SAR} = \frac{\partial}{\partial t} \left( \frac{\partial W}{\partial m} \right).
 \end{align}
-In cases where the exposed tissue exhibits a consistent density, $\rho$, the aforementioned relationship can be represented as
+In cases where the exposed tissue is of constant density, $\rho$, the aforementioned relationship can be represented as
 \begin{align}
     \label{eqn:sar_2}
     \text{SAR} = \frac{\partial}{\partial t} \left( \frac{\partial W}{\rho \; \partial V} \right),
@@ -284,7 +284,7 @@ However, this has been tested only considering several exposure scenarios in~\ci
 
 \section{State of Research}
 Choosing an appropriate spatial averaging technique is crucial for computing power density distribution on the surface on the exposed tissue.
-The \gls{fdtd} method~\cite{Sullivan1987Use} is the standard numerical method of choice in numerical dosimetry for \gls{rf} \gls{emf} simulations, owing to the advent of polished commercial software~\cite{Hirata2021Human}.
+The \gls{fdtd} method~\cite{Sullivan1987Use} is the standard numerical method of choice in numerical dosimetry for \gls{rf}-\gls{emf} simulations, owing to the advent of polished commercial software~\cite{Hirata2021Human}.
 However, accurate power density values at \gls{5g} frequencies, including \gls{mmw}, on conformal surfaces of nonplanar body parts require structural rather than the grid-like spatial domain discretization~\cite{Poljak2018conformal}.
 In regular grid cases, the surface is implicitly reconstructed using cubical cells, approximating spatial averaging as the sum of cell contributions.
 In structural mesh cases, the surface is reconstructed using \gls{2-d} simplices and efficient quadrature schemes~\cite{Dunavant1985High,Dunavant1985Economical}.
@@ -364,7 +364,7 @@ Consequently, a square-shape averaging area of \SI{4}{\cm\squared} has been prop
 However, for frequencies above \SI{30}{\GHz}, an additional averaging of \SI{1}{\cm\squared} has been recommended to account for localized beam formation.
 These findings have been subsequently incorporated in the 2019 edition of the \gls{ieee} standard~\cite{IEEE2019Standard} and the 2020 edition of the \gls{icnirp} guidelines~\cite{ICNIRP2020Guidelines}.
 
-Furthermore, in~\cite{Christ2018Thermal}, the analysis of temperature rise on the surface of single layer and multiple-layer tissue-equivalent models in close proximity to \gls{5g} wireless devices with phased array antennas operating at \SIlist{28;100}{\GHz} has been presented.
+Furthermore, in~\cite{Christ2018Thermal}, the analysis of temperature rise on the surface of single- and multiple-layer tissue-equivalent models in close proximity to \gls{5g} wireless devices with phased array antennas operating at \SIlist{28;100}{\GHz} has been presented.
 Temperature rise has been quantified in relation to the electric field amplitude to take into account the possible impact of reactive components of the incident \gls{emf} in the near field.
 Additionally, the real part of the power density flux has been averaged on \SIlist{20;1}{\cm\squared} averaging areas.
 Authors argue that the size of the averaging area along with the layering structure of the tissue are two critical parameters to consider for exposure assessment and temperature increase on the surface.
@@ -380,14 +380,14 @@ Furthermore, the study highlights the square shape of the averaging area, which 
 In~\cite{Funahashi2018Area-averaged}, the area-averaged \gls{tpd} on the skin surface is demonstrated as a valid proxy to steady-state skin temperature rise above the transition frequency.
 Results obtained at the \SIrange{3}{300}{\GHz} range for a multiple-layer homogeneous cube have shown agreement with the \gls{1-d} analytical thermal model~\cite{Foster2017Thermal}.
 The study further confirms that a \SI{4}{\cm\squared} averaging area remains appropriate for frequencies up to \SI{300}{\GHz} when supplemented with limits on the intensity of very small beams.
-However, However, for small beamwidths, reducing the averaging area by a factor of \num{4} is a reasonable choice and maintains continuity with far-infrared guidelines.
+However, for small beamwidths, reducing the averaging area by a factor of \num{4} is a reasonable choice and maintains continuity with far-infrared guidelines.
 Notably, this study introduces a new dosimetric quantity for estimating surface temperature above the transition frequency.
 At the time of writing~\cite{Funahashi2018Averaging}, this metric was discussed and mentioned in the \gls{icnirp} public consultation document and \gls{ieee} C95.1 draft for the 2019 edition of the \gls{ieee} standard~\cite{IEEE2019Standard}.
 
 Two studies~\cite{He2018RF,Miura2021Power} have conducted \gls{rf} compliance analysis of surface temperature rise in human head model with realistic sources, such as beam-steering patch arrays and dipoles, operating at \SI{28}{\GHz}.
 In~\cite{He2018RF}, it has been confirmed that the power density averaged over a \SI{1}{\cm\squared} area in free space correlates with maximum surface temperature rise.
 This correlation is further supported by \gls{1-d} analysis considering plane-wave exposure.
-The uthors discuss both definitions of the spatially averaged \gls{ipd} in \cref{eqn:ipd-magnitude,eqn:ipd-normal}and choose to adopt the norm definition as it yields higher power density values by taking into consideration tangential components of the incident field.
+The authors discuss both definitions of the spatially averaged \gls{ipd} in \cref{eqn:ipd-magnitude,eqn:ipd-normal} and choose to adopt the norm definition as it yields higher power density values by taking into consideration tangential components of the incident field.
 This choice represents a potentially more conservative value to treat the maximum permissible transmitted power.
 In a subsequent study~\cite{Miura2021Power}, simultaneous near-field exposure at \SIlist{2;28}{\GHz} from the inverted-F and patch array antenna has been investigated.
 At \SI{2}{\GHz}, the 10-g volume-averaged \gls{sar} is used as a surrogate for temperature rise, whereas at \SI{28}{\GHz}, the spatially averaged \gls{tpd} is employed.
@@ -414,7 +414,7 @@ Moreover, the results demonstrate a strong correlation between the area-averaged
 In~\cite{Li2021Quantitative}, a quantitative comparison of spatially averaged \gls{ipd} and \gls{apd} related to near-field exposure at \SIrange{6}{100}{\GHz} is provided.
 Both the spatially averaged magnitude and norm of the complex Poynting vector are considered, and their relationship with spatially averaged \gls{apd} and correlation with maximum surface temperature rise are assessed.
 The analysis focuses on normally incident waves radiated by a single half-wavelength dipole, various configurations of dipole array antennas, with a multiple-layer planar tissue-equivalent model at separation distances in the \SIrange{2}{10}{\mm} range.
-The difference between the two definitions of the spatially averaged \gls{ipd} is marginal (within \SI{0.7}{decibel}) beyond the reactive near field, whereas the difference between norm and normal definitions of the spatially averaged \gls{ipd} compared to the spatially averaged \gls{apd} is \SIlist{0.9;1.4}{\decibel}, respectively.
+The difference between the two definitions of the spatially averaged \gls{ipd} is marginal (within \SI{0.7}{\decibel}) beyond the reactive near field, whereas the difference between norm and normal definitions of the spatially averaged \gls{ipd} compared to the spatially averaged \gls{apd} is \SIlist{0.9;1.4}{\decibel}, respectively.
 These findings indicate that the definition of spatially averaged \gls{ipd} is of minor importance, and greater attention should be given to frequency, antenna-to-tissue separation distance, and the size of the averaging area.
 
 Similar conclusions have been derived in~\cite{DeSantis2022On}.
@@ -427,7 +427,7 @@ The guide covers exposure scenarios involving different radiating sources, incid
 The results are supported by statistical analysis and thermographic measurements.
 Based on the findings, three key conclusions can be drawn:
 \begin{enumerate}
-    \item The norm definition of the spatially averaged \gls{ipd} exhibits the highest correlation coefficients with temperature rise. Both definitions demonstrate good correlation with temperature rise for quasi-perpendicular incidence scenarios (Pearson correlation coefficients > 0.7)
+    \item The norm definition of the spatially averaged \gls{ipd} exhibits the highest correlation coefficients with temperature rise. Both definitions demonstrate good correlation with temperature rise for quasi-perpendicular incidence scenarios (Pearson correlation coefficients > \num{0.7}).
     \item The norm definition provides a slightly better estimation of induced temperature rise compared to the normal definition, but this difference is marginal and is only significant in the near-field region.
     \item The heating factor, influenced by the angle of incidence, indicates that the normal definition of the spatially averaged \gls{ipd} correlates more strongly with maximum surface temperature rise compared to the norm definition. This is due to its reduced sensitivity to variations in the incidence angle.
 \end{enumerate}
@@ -439,7 +439,7 @@ Comparative analysis between hand absorption and a standardized flat phantom has
 Moreover, the impact of body part curvature, modeled using cylinders and elongated cylinders with radii of several millimeters at \gls{mmw} frequencies, has been investigated ~\cite{Sacco2022Exposure}.
 However, spatial averaging was not considered in this study due to the reduced dimensions of the model.
 
-A Working Group 6 has been formed under Subcommittee 6 of \gls{ieee} \gls{ices} Technical Committee 95 to establish new averaging schemes for assessing spatially averaged power densities.
+A Working Group has been formed under Subcommittee \num{6} of \gls{ieee} \gls{ices} Technical Committee \num{95} to establish new averaging schemes for assessing spatially averaged power densities.
 Proposed schemes involve two nonplanar surfaces: spherical and cylindrical, based on the approaches presented in a previous work~\cite{Diao2020Assessment}.
 The assessment of the spatially averaged \gls{apd} on nonplanar surfaces, specifically for a realistic forearm model, has been conducted at the \SIrange{6}{60}{\GHz} range.
 Voxel models~\cite{Baek2019FDTD} are used to represent body parts, and for practicality and ease of computation, the definition of the spatially averaged \gls{apd} in \cref{eqn:apd_1} is adopted.
@@ -454,9 +454,9 @@ Similar to the approach in~\cite{Diao2020Assessment}, the \gls{fdtd} method is u
 The head model is voxelized, and~\cref{eqn:apd_1} is employed to calculate the spatially averaged \gls{apd}. 
 Each voxel's \gls{apd} value on the surface is projected onto a plane perpendicular to the incident wave direction.
 Spatial averaging is then performed over \SIlist{4;1}{\cm\squared} areas centered around the projected voxel, and the maximum spatially averaged value is extracted.
-The study reveals that the peak spatially averaged \gls{apd} remains below the exposure limit thresholds in all cases, except at \SI{6}{\GHz} when a dipole antenna is positioned at a separation distance of \SI{45}{\mm} from the outer ear.
+The study reveals that the peak spatial-averaged \gls{apd} remains below the exposure limit thresholds in all cases, except at \SI{6}{\GHz} when a dipole antenna is positioned at a separation distance of \SI{45}{\mm} from the outer ear.
 The authors propose that this discrepancy arises due to the power absorption being concentrated around the outer ear, attributable to its complex morphology.
-The spatial averaging normalization is conducted using the parametric projection instead of the conformal area on the nonplanar surface, which could be one of the factors contributing to the exceeded threshold in outer ear exposure.
+The spatial averaging normalization is conducted using the square projection instead of the conformal area on the nonplanar surface, which could be one of the factors contributing to the exceeded threshold in outer ear exposure.
 Overall, the findings of this study indicate that varying the structural parameters within a realistic range has a marginal effect on the spatially averaged \gls{apd}.
 
 In~\cite{Morimoto2022Assessment}, a computational investigation has been conducted to examine the effect of two different shapes used for spatial averaging.
@@ -468,7 +468,7 @@ Various configurations of dipole antennas and dipole arrays were utilized to irr
 The findings indicate that the maximum relative difference between square and circular averaging areas is \SI{4}{\percent} when the antenna-to-tissue separation distance exceeds \SI{5}{\mm}.
 However, thermal analysis confirmed that spatially averaged power densities on a circular surface are more conservative than those obtained on a square surface in all considered scenarios, except when the incident angle of the beam falls within the \SIrange{30}{60}{\degree} range.
 
-The topic of averaging area shape is further explored in a smaller-scale study presented in~\cite{Kapetanovic2022IMBioc}.
+The topic of averaging area shape is further explored in a small-scale study presented in~\cite{Kapetanovic2022IMBioc}.
 This investigation focuses on assessing the spatially averaged absorbed power density \gls{apd} on a realistic ear model under plane-wave exposure at \SI{60}{\GHz}.
 The study has compared the effects of square and circular averaging area shapes, both with set to \SI{1}{\cm\squared}.
 By comparing the spatially averaged \gls{apd} values for different polarizations of the incident plane wave, a substantial relative difference of \SI{14}{\percent} has been observed between transverse electric and magnetic polarization on a circular averaging area.

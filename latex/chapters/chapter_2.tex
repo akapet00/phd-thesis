@@ -40,7 +40,7 @@ The integral form of the Poynting vector is given by
     \int_{V} \mathcal{E}' \cdot \mathcal{J} \mathrm{d}V = \frac{\partial}{\partial t}\int_V \frac{1}{2} \; \left( \mathcal{E} \cdot \mathcal{D} + \mathcal{H} \cdot \mathcal{B} \right) \; \mathrm{d}V + \int_{V} \frac{\left| \mathcal{J} \right|}{\sigma} \; \mathcal{J} \; \mathrm{d}V \oint_S \left( \mathcal{E} \times \mathcal{H} \right) \; \mathrm{d} \mathbf{S} = 0,
 \end{align}
 where $\sigma$ represents the density of the material bounded by the surface.
-Herein, the sources within the volume of interest, characterized by electric field $\mathcal{E}'$, are balanced with the rate of increase of \gls{em} energy in the domain, the rate of flow of energy in through the domain surface and the Joule heat production within the domain, respectively.
+Herein, the sources within the volume of interest, characterized by the electric field $\mathcal{E}'$, are balanced with the rate of increase of \gls{em} energy in the domain, the rate of flow of energy in through the domain surface and the Joule heat production within the domain, respectively.
 The flow of energy through the surface, $S$, bounding the observed volume in a unit of time is defined as
 \begin{align}
     \label{eqn:poynting-theorem-energy}
@@ -113,12 +113,12 @@ Non-thermal effects, such as nerve stimulation, are typically associated with \g
     }
 \end{table}
 Exposure to \gls{emf}s induces electric fields within tissue, which can stimulate any excitable cells of that tissue up to \SI{10}{\MHz}~\cite{Saunders2007neurobiological}.
-Pulsed \gls{emf}s of sufficient intensity at low frequency can alter cell membrane permeability and cause deformation of intracellular structures when the duration of exposure is shorter than the charging time of the outer membrane~\cite{Joshi2010Critical}.
+Pulsed \gls{emf}s of sufficient intensity at \gls{lf} can alter cell membrane permeability and cause deformation of intracellular structures when the duration of exposure is shorter than the charging time of the outer membrane~\cite{Joshi2010Critical}.
 As the frequency increases, heating effects predominate and the likelihood of nerve stimulation drastically decreases.
 However, evidence suggests the existence of non-thermal effects above \SI{100}{\MHz}, which are manifested as changes in cell membrane activity, transmembrane potentials, and the cell cycle~\cite{Romanenko2017interaction}.
 Since there is no consensus on their adversity with regards to the tissue health, they fall out of the scope of this thesis.
 It is nevertheless important to note that in~\cite{Fröhlich1968Long}, theoretical predictions of the existence of megahertz to terahertz oscillations in living cells have raised interest in the risks and potentials of \gls{emf}s and tissues.
-Extensive reviews have explored physiological, cellular, and molecular-level biological effects at \gls{mmw}~\cite{Pakhomov1998Current,Zhadobov2011Millimeter}.
+Extensive reviews have explored physiological-, cellular-, and molecular-level biological effects at \gls{mmw}~\cite{Pakhomov1998Current,Zhadobov2011Millimeter}.
 Some arguments support possible interactions with living organisms, excluding direct and indirect thermal effects, such as therapeutic applications~\cite{Ziskin2006Physiological}.
 However, it remains unclear if these effects can be fully understood without considering them within the context of the thermodynamics framework.
 
@@ -127,13 +127,13 @@ The development and widespread use of electronic systems have led to increased h
 Consumer electronics, primarily in the \gls{rf} portion of the \gls{em} spectrum, are commonly used for communication, wireless information transmission, and wireless power transfer.
 To ensure safe usage, regulatory international bodies, such as the \gls{icnirp} and \gls{ieee} \gls{ices}, have established guidelines~\cite{ICNIRP2020Guidelines} and standards~\cite{IEEE2019Standard}, respectively, to limit exposure for both the general public and individuals in restricted environments.
 
-The exposure limits consider short- and long-term, continuous and discontinuous \gls{rf} \gls{emf} exposure, providing a high level of protection against adverse health effects~\cite{ICNIRP2020Guidelines,IEEE2019Standard}.
-The limits are derived from scientific literature that classifies the effects of \gls{rf} \gls{emf} exposure on biological systems and tissues as potentially harmful.
+The exposure limits consider short- and long-term, continuous and discontinuous \gls{rf}-\gls{emf} exposure, providing a high level of protection against adverse health effects~\cite{ICNIRP2020Guidelines,IEEE2019Standard}.
+The limits are derived from scientific literature that classifies the effects of \gls{rf}-\gls{emf} exposure on biological systems and tissues as potentially harmful.
 They are identified as adverse health effect thresholds~\cite{ICNIRP2020Guidelines} or exposure limits~\cite{IEEE2019Standard}.
 Reduction factors~\cite{ICNIRP2020Guidelines} or safety margins~\cite{IEEE2019Standard} are applied to these thresholds/limits, considering individual variability and variations in exposure setups and environments.
 
-The resulting threshold values, incorporating reduction factors or safety margins, are expressed as in terms of \gls{br}s~\cite{ICNIRP2020Guidelines} or \gls{drl}s~\cite{IEEE2019Standard}.
-They relate to physical dosimetric quantities, either peak or averaged in time and space, that are well correlated with occurrence of harmful impact as a result of \gls{rf} \gls{em} exposure.
+The resulting threshold values, incorporating reduction factors or safety margins, are expressed in terms of \gls{br}s~\cite{ICNIRP2020Guidelines} or \gls{drl}s~\cite{IEEE2019Standard}.
+They relate to physical dosimetric quantities, either peak or averaged in time and space, that are well correlated with occurrence of harmful impact as a result of \gls{rf}-\gls{emf} exposure.
 To facilitate the assessment of exposure in situations where the aforementioned physical quantities are difficult to measure, \gls{rl}s~\cite{ICNIRP2020Guidelines} or \gls{erl}s~\cite{IEEE2019Standard} have been derived upon \gls{br}s or \gls{drl}s under worst-case exposure conditions.
 This approach ensures a high degree of conservatism and facilitates compliance assessment with the exposure limits in a more practical manner.
 
@@ -153,7 +153,7 @@ While discrepancies between \gls{ieee} C.95.1-x standard and \gls{icnirp} guidel
 Advancements have been made by including high-fidelity \gls{em} simulation software, \gls{3-d} models for simulations, and accurate instruments for \gls{rf} exposure assessment.
 
 During the last decade, research has doubled on all fronts: from experimental to epidemiological to dosimetric/technical studies.
-However, the greatest progress can be seen in the quality and number of published studies carried out in computational dosimetry research, the main idea of which is the realization of precise simulations at high frequencies in the near-field~\cite{Diao2021Effect}.
+However, the greatest progress can be seen in the quality and number of published studies carried out in computational dosimetry research, the main idea of which is the realization of precise simulations at high frequencies in the near field~\cite{Diao2021Effect}.
 This progress is driven by the emergence of new wireless communication devices based on \gls{5g}, utilizing higher parts of the \gls{rf} spectrum and advanced antenna technologies.
 However, the availability of accurately measured experimental data, particularly at \gls{mmw}, remains limited, and existing studies do not provide sufficient information for safety assessment~\cite{Simkó20195G}.
 The advancement of numerical methods and computing power~\cite{Poljak2018conformal}, and publicly available databases on the dielectric properties of human and animal tissues~\cite{Gabriel1996Compilation} have facilitated progress in computational bioelectromagnetics in general.
@@ -204,16 +204,16 @@ This topic will be discussed in more detail in the following sections.
 \Gls{br}s/\gls{drl}s (hereafter, only the acronym ``\gls{br}'' will be used for the sake of brevity and improved readability) have been derived from the levels of \gls{rf} \gls{emf}s that correspond to the (operational) adverse health effects.
 Typically, \gls{br}s concerning \gls{rf} \gls{emf}s are frequency-dependent dosimetric quantities that are treated separately depending on the spatio-temporal scale of exposure.
 
-For steady-state body core temperature rise, the whole-body average \gls{sar} is defined as the \gls{br} within the frequency range of \SI{100}{\kHz} to \SI{300}{\GHz}.
+For steady-state body core temperature rise, the whole-body averaged \gls{sar} is defined as the \gls{br} within the frequency range of \SI{100}{\kHz} to \SI{300}{\GHz}.
 \Gls{sar} represents the rate at which energy is absorbed per unit mass by a human body when exposed to \gls{rf} \gls{emf}s.
 Specifically, it quantifies the power absorbed per unit mass of tissue and is expressed in watts per kilogram.
-The establishment of the whole-body average \gls{sar} was based on theoretical modeling and the extrapolation of findings from experimental studies conducted on various species.
-Both the \gls{icnirp} and \gls{ieee} have determined a whole-body average \gls{sar} value of \SI{4}{\watt\per\kg}, averaged over the entire body mass and a duration of \SI{30}{\minute}, as a threshold for exposure associated with operational adverse health effects, particularly an increase in body core temperature of \SI{1}{\celsius}.
+The establishment of the whole-body averaged \gls{sar} was based on theoretical modeling and the extrapolation of findings from experimental studies conducted on various species.
+Both the \gls{icnirp} and \gls{ieee} have determined a whole-body averaged \gls{sar} value of \SI{4}{\watt\per\kg}, averaged over the entire body mass and a duration of \SI{30}{\minute}, as a threshold for exposure associated with operational adverse health effects, particularly an increase in body core temperature of \SI{1}{\celsius}.
 In order to account for scientific uncertainties and intervariability in the thermal physiology of occupationally exposed workers, an additional reduction or safety factor of \num{10} is applied.
 Moreover, a reduction factor of \num{50} is implemented for the general public.
 
 \Gls{sar} averaged over \SI{10}{\g} is a suitable measure for estimating the local steady-state temperature increase in tissue exposed to \gls{rf} \gls{emf}s between \SI{100}{\kHz} and \SI{6}{\GHz}.
-The choice of a \SI{10}{\g} mass is somewhat arbitrary, as thermal energy diffuses rapidly and distributes across a larger volume, even though the initial temperature distribution may be inhomogeneous~\cite{Hirata2009correlation}.
+The choice of a 10-g mass is somewhat arbitrary, as thermal energy diffuses rapidly and distributes across a larger volume, even though the initial temperature distribution may be inhomogeneous~\cite{Hirata2009correlation}.
 For head and torso, a \gls{sar} value of \SI{20}{\watt\per\kg} averaged over \SI{10}{\g} and a duration of \SI{6}{\minute} align well with the threshold for (operational) adverse health effects.
 A safety factor of \num{2} is applied to occupational exposure, whereas a safety factor of \num{10} is applied to the general public.
 Conversely, the limbs consist of tissues with lower normothermal temperatures.
@@ -227,7 +227,7 @@ For dry skin of the average density of \SI{1109}{\kg\per\m\cubed}, the cubic vol
 Recent thermal modeling~\cite{Hashimoto2017averaging} and analytical studies~\cite{Foster2017Thermal} suggest that at the \SIrange{6}{30}{\GHz} range, exposure over a square area of \SI{4}{\cm\squared} (approximately matching the front surface area of a 10-g cube) provides a reliable correlation with maximum local temperature rise.
 This finding is supported by simulations of realistic exposure scenarios~\cite{He2018RF}.
 To account for narrow beam formation at higher frequencies, \gls{apd} should be averaged on the most exposed area of \SI{1}{\cm\squared} at the \SIrange{30}{300}{\GHz} range.
-This ensures that the operational adverse health effect thresholds are not exceeded over smaller regions, as long as the value remains within two times that of the \SI{4}{\cm\squared} averaging area~\cite{Foster2016Thermal}.
+This ensures that the operational adverse health effect thresholds are not exceeded over smaller regions, as long as the value remains within two times that of the averaging area of \SI{4}{\cm\squared}~\cite{Foster2016Thermal}.
 For both the head/torso and limb region, the operational adverse health effect threshold is reached for the spatially averaged \gls{apd} of \SI{200}{\W\per\m\squared} over a 6-min interval and a surface area of \SI{4}{\cm\squared} on the exposed region of the body.
 Similar to \gls{sar}, safety factors of \num{2} or \num{10} are applied subsequently as a precautionary measure for occupational exposure or the general public, respectively.
 
@@ -237,21 +237,21 @@ Concrete formulations and values are available elsewhere, e.g. in~\cite{ICNIRP20
 An additional safety factor of either \num{2} and \num{10} is applied to specific energy absorption for occupational exposure or the general public, respectively.
 
 Above \SI{6}{\GHz}, following the same reasoning as for the case of setting \gls{br}s for local steady-state temperature rise, the absorbed energy density is averaged over a square \SI{4}{\cm\squared} area of the most exposed body region of interest.
-To account for focal beam exposure at the \SIrange{30}{300}{\GHz} range, averaging should be performed additionally over a square \SI{1}{\cm\squared} area whereas the absorbed energy density should be at most twice the value for a square \SI{1}{\cm\squared} averaging area.
+To account for focal beam exposure at the \SIrange{30}{300}{\GHz} range, averaging should be performed additionally over a square area of \SI{1}{\cm\squared} whereas the absorbed energy density should be at most twice the value for the corresponding averaging area of \SI{4}{\cm\squared}.
 Again, safety factors of \num{2} and \num{10} are respectively applied for occupational exposure and the general public, respectively.
 
 \subsection{Exposure Reference Levels}
 \Gls{rl}s/\gls{erl}s (hereafter, only the acronym ``\gls{rl}'' will be used for the sake of brevity and improved readability) have been derived from a combination of computational and measurement studies to provide more practical means of demonstrating compliance by using physical quantities that are easy to assess without the need of having a human body in the measurement loop.
 The measurement takes place in free space, where instead of absorbed, incident values are considered.
-Within the existing literature, the term ``exposure assessment'' pertains to the evaluation of \gls{rf} \gls{em} energy that reaches the body, while ``dosimetry'' refers to determining the absorption of \gls{rf} \gls{em} energy within the body~\cite{Chou1996Radio}.
+Within the existing literature, the term ``exposure assessment'' pertains to the evaluation of \gls{rf}-\gls{em} energy that reaches the body, while ``dosimetry'' refers to determining the absorption of \gls{rf}-\gls{em} energy within the body~\cite{Chou1996Radio}.
 
 The \gls{rl} quantities include incident electric field strength, incident magnetic field strength, \gls{ipd}, plane-wave equivalent \gls{ipd}, incident energy density, plane-wave equivalent incident energy density, and electric current within the body, all measured outside the body.
 These physical quantities serve as predictors for assessing compliance with \gls{br}s.
 The accuracy of predictions is strongly related to whether external \gls{emf}s can be considered to be within the far field, radiative near field or reactive near field.
 The \gls{icnirp} guidelines~\cite{ICNIRP2020Guidelines} and \gls{ieee} standard~\cite{IEEE2019Standard} have slightly different and more conservative rules for exposure in the near field compared to far field~\cite{Hirata2020Difference}.
-This thesis focuses on \gls{rf} \gls{emf} exposure within the \SIrange{6}{300}{\GHz} range, while details for determining \gls{rl}s outside this range can be found in other sources such as ``Reference levels'' chapter in the \gls{icnirp} 2020 guidelines~\cite{ICNIRP2020Guidelines} and chapter 4.3 in the \gls{ieee} C95.1-2019 standard~\cite{IEEE2019Standard}.
-Within the \SIrange{6}{300}{\GHz} range, \gls{ipd} is defined as the \gls{rl} averaged over a 6-min period for local exposure, either as a peak value (at \SI{6}{\GHz}) or spatially averaged over a \SI{4}{\cm\squared} square area (above \SI{6}{\GHz}).
-Moreover, above \SI{30}{\GHz}, \gls{ipd} should be averaged over a \SI{1}{\cm\squared} square projected onto the body surface, with the restriction that it cannot exceed twice the value on the corresponding \SI{4}{\cm\squared} area.
+This thesis focuses on \gls{rf}-\gls{emf} exposure within the \SIrange{6}{300}{\GHz} range, while details for determining \gls{rl}s outside this range can be found in other sources such as ``Reference levels'' chapter in the \gls{icnirp} 2020 guidelines~\cite{ICNIRP2020Guidelines} and chapter 4.3 in the \gls{ieee} C95.1-2019 standard~\cite{IEEE2019Standard}.
+Within the \SIrange{6}{300}{\GHz} range, \gls{ipd} is defined as the \gls{rl} averaged over a 6-min period for local exposure, either as a peak value (at \SI{6}{\GHz}) or spatially averaged over a square area of \SI{4}{\cm\squared} above \SI{6}{\GHz}.
+Additionally, above \SI{30}{\GHz}, \gls{ipd} should be averaged over a square of \SI{1}{\cm\squared} projected onto the body surface, with the restriction that it cannot exceed twice the value on the corresponding area of \SI{4}{\cm\squared}.
 
 Compliance within the far field at \SI{6}{\GHz} requires that the peak-spatial \gls{ipd} remains below the specified value.
 When appropriate, the plane-wave equivalent \gls{ipd} can be used as a substitute for the peak-spatial \gls{ipd}.
@@ -289,7 +289,7 @@ In \cref{fig:reference_levels}, \gls{ipd} as a function of frequency is shown wi
     \label{fig:reference_levels}
 \end{figure}
 Constant values of \SIlist{50;10}{\watt\per\m\squared} are prescribed for whole-body exposure in occupational and general public settings, respectively.
-For local exposure at \SI{6}{\GHz} within the far-field, compliance is achieved if the peak-spatial \gls{ipd} remains below the specified value.
+For local exposure at \SI{6}{\GHz} within the far field, compliance is achieved if the peak-spatial \gls{ipd} remains below the specified value.
 The plane-wave equivalent \gls{ipd} can be used as a substitute when appropriate.
 In the radiative near field, compliance is demonstrated by ensuring that the \gls{ipd} does not exceed the limits.
 However, within the reactive near field, compliance cannot be determined based on \gls{ipd} alone; dosimetric values must be assessed instead.

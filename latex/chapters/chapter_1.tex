@@ -34,16 +34,16 @@ The primary restriction is based on the limiting the maximum radiated power defi
 Separate limits are defined for the general public (unrestricted environment) and for occupational exposure (restricted environment)~\cite{Hirata2021Assessment}.
 
 A well-established and comprehended effect of \gls{emf}s on human tissue during exposures above \SI{6}{\GHz} is the elevation of surface temperature~\cite{Ziskin2018Tissue}, which lies ahead as the primary driving force of this thesis.
-Recently, both the \gls{icnirp} guidelines~\cite{ICNIRP2020Guidelines} and \gls{ieee} \gls{ices} C95.1 standard~\cite{IEEE2019Standard} have
+Recently, both the guidelines by the \gls{icnirp}~\cite{ICNIRP2020Guidelines} and C95.1 standard by the \gls{ices} of \gls{ieee}~\cite{IEEE2019Standard} have
 undergone significant revisions to address knowledge gaps and update safety levels concerning human exposure to \gls{emf}s up to \SI{300}{\GHz}.
 These revisions reflect the rapid development of \gls{5g} technology and its associated implications for human health and safety.
 
 The most notable amendment is the inclusion of the \gls{apd} as the \gls{br}~\cite{ICNIRP2020Guidelines} or \gls{drl}~\cite{IEEE2019Standard} in the context of local exposure above \SI{6}{\GHz}.
 This dosimetric quantity represents the spatially averaged power density vector field absorbed on the exposed skin surface.
-\Gls{apd} is derived from \gls{rf} \gls{emf} levels that correlate with the adverse health effects manifested as the excessive surface temperature elevation.
+\Gls{apd} is derived from \gls{rf}-\gls{emf} levels that correlate with the adverse health effects manifested as the excessive surface temperature elevation.
 Furthermore, in order to provide practical means of demonstrating compliance, the \gls{rl}~\cite{ICNIRP2020Guidelines} (or \gls{erl}~\cite{IEEE2019Standard}) has been redefined in terms of the \gls{ipd}.
 Within the frequency range of \SIrange{6}{300}{\GHz}, both \gls{apd} and \gls{ipd} should be averaged over a square-shape evaluation plane of \SI{4}{\cm\squared} to maintain consistency with volume-averaged \gls{sar} used as the \gls{br} below \SI{6}{\GHz}~\cite{Funahashi2018Averaging,Hashimoto2017averaging}.
-Additionally, at frequencies above \SI{30}{\GHz}, averaging should be conducted over a square-shape evaluation plane of \SI{1}{\cm\squared} to account for narrow beam formation, applying the relaxation factor of \num{2} to the corresponding power density values obtained on a \SI{4}{\cm\squared} plane~\cite{Foster2016Thermal}.
+Additionally, at frequencies above \SI{30}{\GHz}, averaging should be conducted over a square-shape evaluation plane of \SI{1}{\cm\squared} to account for narrow beam formation, applying the relaxation factor of \num{2} to the corresponding power density values obtained on a plane of \SI{4}{\cm\squared}~\cite{Foster2016Thermal}.
 
 In general, two definitions of \gls{apd} have been adopted, both stemming from the Poynting theorem.
 The first definition entails computing \gls{apd} as the spatially averaged \gls{tpd} on the evaluation plane~\cite{Hirata2018Review}.
@@ -74,7 +74,7 @@ This is particularly important given the small dimensions of antennas used in cl
 
 \section{Hypothesis}
 \label{sec:hypothesis}
-One of the main features of \gls{5g} is the utilization of frequency bands that include high microwave frequencies (above \SI{6}{\GHz}) and \gls{mmw} (above \SI{30}{\GHz}).
+One of the main features of \gls{5g} is the utilization of frequency bands that include high-microwave frequencies (above \SI{6}{\GHz}) and \gls{mmw} (above \SI{30}{\GHz}).
 At these frequencies, the effects of \gls{emf}s on the human body are predominantly localized, leading to surface temperature rise of the exposed skin. 
 To quantify this phenomenon, we use spatially averaged power densities, either incident or absorbed, that correlate with temperature rise and are evaluated over a specific area of maximum exposure.
 To date, dosimetry analyses have mostly relied on flat tissue models.
@@ -120,9 +120,9 @@ The main contributions of this work are as follows:
     This research introduces a collection of realistic models that accurately represent nonplanar parts of the human body exposed to \gls{emf}s above \SI{6}{\GHz}.
     These models are devised to supersede the prevailing planar models in existing literature, aiming to achieve a better approximation of the curved regions with irregular structures.
     Specifically, the models consist of homogeneous or stratified representations of the head in a spherical or cylindrical form, as well as a homogeneous or stratified anatomical model of the external ear.
-    The selection of the ear is motivated by its morphological complexity, which gives rise to a highly inhomogeneous distribution of the absorbed power, in contrast to the simplified flat, spherical, and cylindrical models. Furthermore, it is worth noting that the outer ear, being the most exposed part of the body during practical exposure scenarios, is of particular significance.
+    The selection of the ear is motivated by its morphological complexity, which gives rise to a highly inhomogeneous distribution of the absorbed power, in contrast to the simplified flat, spherical and cylindrical models. Furthermore, it is worth noting that the outer ear, being the most exposed part of the body during practical exposure scenarios, is of particular significance.
     \item Automated detection algorithm for ``hot-spot'' regions.
-    An algorithm is presented for the automatic detection of localized regions of maximum exposure referred to as ``hot-spot.''
+    An algorithm is presented for the automatic detection of localized regions of maximum exposure referred to as ``hot-spot'' regions.
     These regions denote limited areas characterized by the maximum increase in temperature relative to the average surrounding temperature out of the influence of the exposure.
     The technique relies on iterative applications of the \gls{pca} or factor analysis, utilizing curved models with simple geometries or anatomical models transformed into unstructured point clouds sampled on the surface of the model.
     \item Comprehensive analysis of the spatially averaged \gls{apd} and \gls{ipd}  by using rigorous mathematical definitions via surface integrals.
@@ -133,7 +133,7 @@ The main contributions of this work are as follows:
 In addition to the main contribution, further application of the research results would achieve:
 \begin{itemize}
     \item confirmation of the validity of the spatially averaged \gls{apd} as a fundamental limit for estimating temperature rise for local exposure of curved body parts above \SI{6}{\GHz} in steady state;
-    \item insight into the efficiency of curved and anatomical models for computational dosimetry at high frequencies as a basis for future discussions and activities \gls{ieee} \gls{ices} Technical Committee 95 Subcommittee 6 for \gls{em} dosimetry modeling;
+    \item insight into the efficiency of curved and anatomical models for computational dosimetry at high frequencies as a basis for future discussions and activities of \gls{ieee} \gls{ices} Technical Committee 95 Subcommittee 6 for \gls{em} dosimetry modeling;
     \item basis for discussion on the realization of curved models as reference for future generations of the \gls{icnirp} guidelines and \gls{ieee} standards.
 \end{itemize}
 
@@ -171,7 +171,7 @@ For a more detailed overview of this methodology, specifics can be found in~\cre
 In the first three published papers, surface integrals of either scalar or vector fields are approximated by using the \gls{2-d} Gaussian quadrature~\cite{Abramowitz1972Handbook}.
 This method is applied on a parametric surface, a square-shape projection of a specific region of interest on the evaluation surface in \gls{2-d} space.
 The parametric surface represents the area over which the integration is performed.
-In all three published papers, a Gaussian-Legendre quadrature of a ``high enough'' polynomial degree is employed for this purpose.
+In all three published papers, a Gaussian-Legendre quadrature of a ``high-enough'' polynomial degree is employed for this purpose.
 In turn, the fourth published paper focuses on analyzing the optimal degree of quadrature, i.e., what does ``high enough'' actually stands for.
 Multiple convergence tests are conducted to understand how the increasing frequency and spatial discretization scheme affect the accuracy of the final numerical solution.
 This analysis is particularly important to be able to accurately handle high-fidelity \gls{emf} simulations.
@@ -182,7 +182,7 @@ The motivation and hypothesis of the thesis as well as the list of published pap
 Moving forward, \cref{chap:2} provides an overview of the fundamental interaction between \gls{rf} \gls{emf}s and the human body.
 Starting from the first principles rooted in Maxwell's equations, this chapter offers a meticulous description of non-ionizing radiation, which forms the basis for establishing limits on human exposure to \gls{rf} \gls{emf}s.
 In~\cref{chap:3}, a more detailed exploration of the mathematical formulations pertaining to spatially averaged dosimetric quantities is conducted, drawing upon the Poynting theorem as a fundamental principle of energy conservation in electrodynamics. 
-Special attention is given to a specific exposure scenario characterized as local, steady-state, and within the \SIrange{6}{300}{\GHz} range, where the primary outcome of \gls{rf} \gls{emf} interaction with the human body manifests as temperature rise on the skin surface.
+Special attention is given to a specific exposure scenario characterized as local, steady-state, and within the \SIrange{6}{300}{\GHz} range, where the primary outcome of \gls{rf}-\gls{emf} interaction with the human body manifests as temperature rise on the skin surface.
 Lastly, it provides an overview of the current state of research, focusing on computational procedures employed for assessing the power density from wireless devices in close proximity to the human body.
 \Cref{chap:4} delves deep into techniques necessary to accurately compute the spatially averaged power density on nonplanar evaluation surfaces.
 Furthermore, published papers that serve as the foundation of this thesis are listed in~\cref{chap:5}. 

@@ -78,7 +78,7 @@ With this approach, the exposure of nonplanar body parts, such as fingers (along
 As a proof of concept, both the spherical and cylindrical model for various curvature radii within the \SIrange{5}{15}{\cm} range have been irradiated by a half-wavelength dipole antenna operating at \SIrange{6}{90}{\GHz}.
 To put them in the frame of reference, results from nonplanar models have been compared with the flat model positioned tangentially at the closest point(s) of either nonplanar model relative to the antenna.
 Spatial averaging has been performed on a square \SI{4}{\cm\squared} area at \SIrange{6}{30}{\GHz} and \SI{1}{\cm\squared} above \SI{30}{\GHz} to account for the focused beams~\cite{Hashimoto2017averaging,Foster2016Thermal}.
-Additionally, the computational model of the antenna have been aided with machine learning to alleviate the numerical errors ubiquitous at high frequency \gls{emf} simulations.
+Additionally, the computational model of the antenna have been aided with machine learning to alleviate the numerical errors ubiquitous at high-frequency \gls{emf} simulations.
 
 Results indicate that the curvature of the nonplanar evaluation surface strongly affects the overall spatially averaged \gls{ipd}.
 Unlike on spherical, the spatially averaged \gls{ipd} on cylindrical models is only slightly larger (up to \SI{4.4}{\percent} in the studied experiments) compared to the traditional flat model.
@@ -90,9 +90,9 @@ Thereby, only two spatial components of the parametric representation of the cyl
 
 Overall this paper offers provides confirmation of the following assumptions presented in~\cref{chap:1}:
 \begin{itemize}
-    \item cylindrical models are better suited for practical compliance assessment in comparison to flat models,
-    \item spatial distribution of normals has a strong impact on the averaging of the surface-normal propagation-direction power density into the nonplanar evaluation surface,
-    \item hybridization of machine learning and traditional numerical methods through the framework of differentiable programming facilitates \gls{emf} exposure modeling and allows high-fidelity simulations.
+    \item cylindrical models are better suited for practical compliance assessment in comparison to flat models;
+    \item spatial distribution of normals has a strong impact on the averaging of the surface-normal propagation-direction power density into the nonplanar evaluation surface;
+    \item hybridization of machine learning and traditional numerical methods through the framework of differentiable programming facilitates \gls{emf}-exposure modeling and allows high-fidelity simulations.
 \end{itemize}
 
 \subsection{Author Contributions}
@@ -119,7 +119,7 @@ This study presents a novel numerical technique for the extraction of the spatia
 In~\cref{fig:Kapetanovic2022JERM}, the overview of the assessment process is shown.
 In panel \textbf{a}, the computational model on the adult ear used in experiments is shown.
 Furthermore, panel \textbf{b} depicts the relationship between the conformal evaluation surface and its projection positioned perpendicular to the plane wave incidence point of view in \gls{2-d} space.
-Panel \textbf{c} represents the spatial distribution of the power density flux through the entire irradiated surface, where the white square emphasizes the ``hot-spot'' region, that is, the surface which yields the maximal spatially averaged \gls{apd}.
+Panel \textbf{c} represents the spatial distribution of the power density flux through the entire irradiated surface, where the white square emphasizes the ``hot-spot'' region, that is, the surface which yields the peak spatial-averaged \gls{apd}.
 In panel \textbf{d}, the discrepancy between the transmitted and absorbed power distributed on the ``hot-spot'' region is shown.
 Finally, panel \textbf{e} summarizes collected results.
 \begin{figure}[ht]
@@ -156,7 +156,7 @@ A number of convergence tests were performed to investigate the effects of the i
 The results show that in the lower gigahertz range, lower integration orders could be used, resulting in the decrease of matrix fill time without loss of solution accuracy.
 
 \subsection{Impact Statement}
-In all three previously outlined publications, surface integrals of the scalar and vector field have been approximated by using the \gls{2-d} $n$-degree Gauss-Legendre quadrature~\cite{Abramowitz1972Handbook} or the adaptive Gauss-Kronrod quadrature~\cite{Piessens1983Quadpack} depending on whether the integrands are ``well-behaved'' or not.
+In all three previously outlined publications, surface integrals of the scalar and vector field have been approximated by using the \gls{2-d} $n$-degree Gauss-Legendre quadrature~\cite{Abramowitz1972Handbook} or the adaptive Gauss-Kronrod quadrature~\cite{Piessens1983Quadpack} depending on whether the integrands are ``well behaved'' or not.
 Since ``behavior'' in this sense is a vaguely defined term as there is no strict mathematical definition for it, please refer to~\cite{Weisstein2023Pathological} for further explanation.
 However, in neither publication, the reasoning for the choice of the specific quadrature scheme have been provided.
 
@@ -164,10 +164,11 @@ As the exposure assessment and dosimetry analysis relies on the use of sophistic
 The method of moments is used in this paper, which, although accurate for integral equation-based \gls{em} formulations, require fully populated system matrix whose size is related to the frequency of the problem.
 This leads to the tremendous computational costs by means of the matrix fill time and corresponding memory allocation~\cite{Poljak2018conformal}.
 
-In this paper, which is the direct extension of~\cite{Cvetkovic2021Study}, the comprehensive set of convergence tests for quadrature related to double surface integrals at frequencies related to \gls{5g} is demonstrated.
+In this paper, representing the direct extension to~\cite{Cvetkovic2021Study}, a comprehensive set of convergence tests for quadrature related to double surface integrals at frequencies related to \gls{5g} is demonstrated.
 Specifically, examination on various combination of source and observation triangles has been performed.
-Computational results demonstrate that the numerical solution at frequencies in the higher gigahertz range require the use of high quadrature orders as well as finer discretization schemes, resulting in significantly increased requirements for matrix storage as well as matrix fill time.
-On the other hand, at lower gigahertz range by using an appropriate discretization scheme, lower integration orders could be used thereby facilitating the decrease of matrix fill time without actually lowering the accuracy of the solution.
+Computational results demonstrate that the numerical solution at frequencies in the high-gigahertz range require the use of high quadrature orders as well as finer discretization schemes, resulting in significantly increased requirements for matrix storage as well as matrix fill time.
+On the other hand, at low-gigahertz range by using an appropriate discretization scheme, lower integration orders could be used.
+This leads to the decrease of matrix fill time without sacrificing the accuracy of the solution.
 
 \subsection{Author Contributions}
 Authors: Mario Cvetković, Dragan Poljak, Ante Kapetanović and Hrvoje Dodig.\\

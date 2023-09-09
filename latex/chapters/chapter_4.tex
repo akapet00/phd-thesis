@@ -30,13 +30,13 @@ since the gradient at any point is perpendicular to the level set $S$.
 
 Finally, a surface $S$, given locally as the graph of a bi-variate ``height'' function relative to any $z$-direction that is not contained in the tangent plane, $z = f(x, y)$, is given as
 \begin{align}
-    \mathbf{r}(x, y) = \left( x, y, f(x, y) \right).
+    \mathbf{r}(x, y) = \left( x, y, f \left( x, y \right) \right).
 \end{align}
 A surface normal is then defined as the cross product of partial derivatives of a ``height'' function,
 \begin{align}
     \mathbf{n} = \frac{\partial \mathbf{r}}{\partial x} \times \frac{\partial \mathbf{r}}{\partial y}.
 \end{align}
-This way of assigning a surface normals is closely related to normals derived from the implicit surface form:
+This way of assigning a surface normals is closely related to normals derived from the implicit surface form,
 \begin{align}
     F(x, y, z) = z - f(x, y),
 \end{align}
@@ -191,7 +191,7 @@ Instead of the imposed constrained optimization in~\cref{eqn:constrained_1,eqn:c
 \begin{equation*}
     \mathcal{L}(\mathbf{n}_i, \lambda) = f(\mathbf{n}_i) - \lambda g(\mathbf{n}_i).
 \end{equation*}
-The constrained optimization is now converted to the unconstrained minimization of $\mathcal{L}(\mathbf{n}_i, \lambda)$ simply by equating the gradient of the Lagrangian to zero,
+The constrained optimization is now converted into the unconstrained minimization of $\mathcal{L}(\mathbf{n}_i, \lambda)$ simply by equating the gradient of the Lagrangian to zero,
 \begin{align}
     \nabla \mathcal{L}(\mathbf{n}_i, \lambda) &= 0, \\
     \frac{\partial \mathcal{L}}{\partial \mathbf{n}_i} &= 0 \Rightarrow \mathbf{S}_i \mathbf{n}_i = \lambda \mathbf{n}_i, \\
@@ -255,7 +255,7 @@ The positioning of the averaging area on the evaluation surface is determined by
 To ascertain the orientation that maximizes the power passing through the averaging area, the square is rotated around its center point in increments of up to \SI{5}{\degree}~\cite{IEC63195-2-2022}.
 The maximum spatially averaged power density with regards to the relative orientation at a query point is determined; further information regarding the integration of power density can be found in~\cref{sec:spatial_averaging_of_power_density}.
 This process is repeated for all points on the evaluation surface.
-The peak spatially averaged power density is then reported at the point, which results in a global maximum of the spatially averaged power density.
+The peak spatial-averaged power density is then reported at the point, which results in a global maximum of the spatially averaged power density.
 
 The averaging area on the nonplanar evaluation surface is determined as the intersection with a sphere of a fixed size defined by radius $r_\text{av}$; panel \textbf{a} in~\cref{fig:evaluation_surface}.
 \begin{figure}[t]
@@ -266,7 +266,7 @@ The averaging area on the nonplanar evaluation surface is determined as the inte
 \end{figure}
 Contrary to recommendations in~\cite{IEC63195-2-2022}, the radius is here defined as
 \begin{align}
-    r_\text{av} = \frac{\sqrt{2}}{2} A,
+    r_\text{av} = \frac{\sqrt{2 A}}{2},
 \end{align}
 where $A$ is the square-shape flat averaging area.
 Thus, $r_\text{av}$ corresponds to the radius of the circumscribed circle of the square-shape averaging area.
@@ -324,10 +324,10 @@ The first specification pertains to the power density of the surface-normal prop
 The computation of the spatially averaged power density at a specific location, as determined by the position vector, $\mathbf{r}_0$, follows the expression presented below~\cite{IEC63195-2-2022}:
 \begin{align}
     \label{eqn:propagation-direction}
-    S_\text{inc, n}(\mathbf{r}_0) = \frac{1}{2 \hat{A}(\mathbf{r}_0)} \iint_{A(\mathbf{r}_0)} \Re \left[ \mathbf{E}(\mathbf{r}) \times \mathbf{H}^*(\mathbf{r}) \right] \; \mathbf{\hat n}(\mathbf{r}) \cdot \Theta \left\{ \Re \left[ \mathbf{E(\mathbf{r})} \times \mathbf{H}^*(\mathbf{r}) \right] \; \mathbf{\hat n}(\mathbf{r}) \right\} \; \mathrm{d}\hat{A}(\mathbf{r}).
+    S_\text{inc, n}(\mathbf{r}_0) = \frac{1}{2 \hat{A}\left( \mathbf{r}_0 \right)} \; \iint_{A \left( \mathbf{r}_0 \right)} \Theta \left\{ \Re \left[ \mathbf{E \left( r \right)} \times \mathbf{H^* \left( r \right)} \right] \cdot \mathbf{\hat{n} \left( r \right)} \right\} \cdot \Re \left[ \mathbf{E \left( r \right)} \times \mathbf{H^* \left( r \right)} \right] \cdot \mathbf{\hat{n} \left( r \right)} \; \mathrm{d}\hat{A}\left( \mathbf{r} \right).
 \end{align}
 In this equation, the Heaviside function, $\Theta(\cdot)$, assumes a crucial role.
-This function ensures that the integrand function to zero if the angle between the Poynting vector and a normal vector (which is assumed to point into the irradiated solid volume bounded by the surface) is within the \SIrange{90}{270}{\degree} range.
+This function ensures that the integrand function is zero if the angle between the Poynting vector and a normal vector (which is assumed to point into the irradiated solid volume bounded by the surface) is within the \SIrange{90}{270}{\degree} range.
 This adjustment is necessary to account for situations where the normal component of the Poynting vector would otherwise yield a negative value.
 Additionally, within the equation, $\hat A$ stands for the conformal averaging area, with $\hat A$ being always greater than $A$ for nonplanar surfaces.
 The positional vector, denoted as $\mathbf{r}$, refers to a point on the surface determined by the area $\hat A$.
@@ -363,19 +363,19 @@ This adaptive numerical integration method is based on Gaussian quadrature, with
 Furthermore, this method eliminates the need for explicitly defining the degree of quadrature.
 A typical choice combines a \num{7}-point Gauss rule with a \num{15}-point Kronrod rule~\cite{Kahaner1989Numerical}.
 However, it is important to note that the Gauss-Kronrod quadrature can be computationally intensive, particularly when a large number of surface integrals needs to be evaluated, depending on the complexity of the integrand function.
-A detailed discussion on the selection of the quadrature technique can be found in the fourth published paper~\cref{sec:publication_4}.
+A detailed discussion on the selection of the quadrature technique can be found in the fourth published paper in~\cref{sec:publication_4}.
 
-The automatic detection of the ``hot-spot'' region involves a set of sequential steps, as outlined below:
+The automatic detection of the region of highest exposure involves a set of sequential steps, as outlined below:
 \begin{itemize}
     \item assuming a nonplanar model is represented by an oriented set of points $\mathbb{X} = \{ \mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_n \} \subset \mathbb{R}^3$, organize it into a \gls{3-d} \gls{k-d} tree;
     \item identify points visible from the predefined direction~\cite{Katz2007Direct}, which should correspond to the propagation direction of the \gls{emf}; this step is optional, but it allows to focus solely on a region that is in the line of sight of \gls{emf} sources;
     \item for each point (in the visible subset of points), extract the local neighborhood by considering points located within a sphere of a radius $\nicefrac{\sqrt{2}}{2} \; A$, where $A$ represents the size of the square integration domain;
-    \item perform a change of basis on the local neighborhood using the \gls{pca}; this transformation aligns the tangential principal components with $A$;
+    \item perform a change of basis on the local neighborhood using the \gls{pca}, which leads to the alignment of the tangential principal components with $A$;
     \item compute the area of a conformal averaging area, $\hat A$, by approximating the surface integral of the magnitude of surface normals on the corresponding surface;
     \item compute the spatially averaged power density using the approach outlined in~\cref{eqn:propagation-direction,eqn:total}.
 \end{itemize} 
 
-To demonstrate the practical application of the ``hot-spot'' detection, we consider the realistic human head model\footnote{Courtesy of H. Dodig, University of Split, Faculty of Maritime Studies} exposed to \gls{rf} energy in a Gaussian pattern~\cite{Foster2016Thermal} (approximating the exposure conditions in~\cite{Colombi2015Implications}).
+To demonstrate the practical application of the automated detection, we consider the realistic human head model\footnote{Courtesy of H. Dodig, University of Split, Faculty of Maritime Studies} exposed to \gls{rf} energy in a Gaussian pattern~\cite{Foster2016Thermal} (approximating the exposure conditions in~\cite{Colombi2015Implications}).
 The original \gls{3-d} model is constructed from magnetic resonance imaging scans of a \num{24}-year-old male volunteer~\cite{Laakso2015Intersubject}.
 However, in this illustration, we represent the input model as an unstructured point cloud comprising \num{63333} surface points.
 The reconstructed surface of the point cloud model, obtained using the Poisson method~\cite{Kazhdan2006Poisson}, which solves for an approximate indicator function matching the input normals' gradient, is depicted in panel \textbf{a} in~\cref{fig:head}.
@@ -399,12 +399,12 @@ where  $s_x$, $s_y$ and $s_z$ correspond to \num{1}, \num{0.5} and \num{0.25}, r
 The scaled distance is bounded within the radius of ``influence'', $\rho$, set to \SI{2.5}{\cm} in this particular case.
 
 Finally, panel \textbf{d} in~\cref{fig:head} shows the square projection of the conformal averaging area corresponding to the most exposed region on the evaluation surface.
-Before executing the algorithm for automatic detection of the ``hot-spot'' region, the surface is resampled into a point cloud where only the points directly visible from the perspective of the \gls{emf} incidence point of view (in the negative $x$-direction) are considered.
+Before executing the algorithm for automated detection of the peak spatial-averaged power density, the surface is resampled into a point cloud where only the points directly visible from the perspective of the \gls{emf} incidence point of view (in the negative $x$-direction) are considered.
 The hidden point removal operator~\cite{Katz2007Direct}, which determines the visible points in a point cloud, as viewed from any given viewpoint is employed.
 The spatial averaging of the power density within this region of the surface yields a value of \SI{4.45}{\watt\per\m\squared}.
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{artwork/head.pdf}
-    \caption{Spatial averaging of the power density on the human head model: (a) reconstructed surface of the human head, (b) unit normals directed outward from the surface, represented using red-green-blue values, (c) distribution of the power density in a Gaussian pattern with the peak value located in the upper crus of the right antihelix, (d) position of the quadratic projection of the conformal averaging region on the surface where the spatial averaging of the power density results in a global maximum value.}
+    \caption{Spatial averaging of the power density on the human head model: (a) reconstructed surface of the human head, (b) unit normals directed outward from the surface (represented using red-green-blue values), (c) distribution of the power density in a Gaussian pattern with the peak value located in the upper crus of the right antihelix, (d) position of the square projection of the conformal averaging region on the surface where the spatial averaging of the power density results in a global maximum value.}
     \label{fig:head} 
 \end{figure}
