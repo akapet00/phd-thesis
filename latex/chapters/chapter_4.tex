@@ -369,7 +369,7 @@ The automatic detection of the region of highest exposure involves a set of sequ
 \begin{itemize}
     \item assuming a nonplanar model is represented by an oriented set of points $\mathbb{X} = \{ \mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_n \} \subset \mathbb{R}^3$, organize it into a \gls{3-d} \gls{k-d} tree;
     \item identify points visible from the predefined direction~\cite{Katz2007Direct}, which should correspond to the propagation direction of the \gls{emf}; this step is optional, but it allows to focus solely on a region that is in the line of sight of \gls{emf} sources;
-    \item for each point (in the visible subset of points), extract the local neighborhood by considering points located within a sphere of a radius $\nicefrac{\sqrt{2}}{2} \; A$, where $A$ represents the size of the square integration domain;
+    \item for each point (in the visible subset of points), extract the local neighborhood by considering points located within a sphere of a radius $\nicefrac{\sqrt{2 A}}{2}$, where $A$ represents the size of the square integration domain;
     \item perform a change of basis on the local neighborhood using the \gls{pca}, which leads to the alignment of the tangential principal components with $A$;
     \item compute the area of a conformal averaging area, $\hat A$, by approximating the surface integral of the magnitude of surface normals on the corresponding surface;
     \item compute the spatially averaged power density using the approach outlined in~\cref{eqn:propagation-direction,eqn:total}.
